@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#15803d"/>
+    </marker>
+    <style>
+      .box{stroke:#334155;stroke-width:1.5;rx:10}
+      .t{font-size:17px;font-weight:700;fill:#0f172a}
+      .s{font-size:13px;fill:#334155}
+      .m{font-size:12px;fill:#475569;font-family:Consolas,monospace}
+      .arr{stroke:#334155;stroke-width:2;fill:none;marker-end:url(#a)}
+      .err{stroke:#b91c1c;stroke-width:1.6;fill:none;stroke-dasharray:6 4;marker-end:url(#r)}
+      .ok{stroke:#15803d;stroke-width:2;fill:none;marker-end:url(#g)}
+      .lbl{font-size:12px;fill:#334155}
+      .lr{font-size:12px;fill:#b91c1c;font-weight:600}
+      .lg{font-size:12px;fill:#15803d;font-weight:600}
+    </style>
+  </defs>
+  <rect width="1400" height="1000" fill="#ffffff"/>
+  <text x="40" y="44" font-size="24" font-weight="700" fill="#0f172a">API Polo Norte · Escenario B · Establo de renos y mantenimiento</text>
+  <text x="40" y="66" class="s">Node.js + Express 5 · Sequelize + MySQL · JWT · Adaptador SOAP</text>
+
+  <!-- API boundary -->
+  <rect x="390" y="88" width="520" height="790" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-dasharray="8 5"/>
+  <text x="404" y="868" class="m">proceso Node.js (src/)</text>
+
+  <!-- Client -->
+  <rect class="box" x="40" y="100" width="260" height="76" fill="#fef3c7"/>
+  <text x="60" y="130" class="t">Cliente · Postman</text>
+  <text x="60" y="152" class="s">PoloNorte-EscenarioB.postman_collection</text>
+
+  <!-- Entry -->
+  <rect class="box" x="420" y="100" width="460" height="76" fill="#e0f2fe"/>
+  <text x="440" y="128" class="t">Punto de entrada · app.js / server.js</text>
+  <text x="440" y="150" class="m">Express :3000 · express.json() · prefijo /api</text>
+  <text x="440" y="167" class="m">server.js: conecta MySQL y sync()</text>
+
+  <path class="arr" d="M300,124 L418,124"/>
+  <text x="308" y="116" class="lbl">HTTP + JSON</text>
+  <path class="ok" d="M418,158 L302,158"/>
+  <text x="308" y="174" class="lg">200/201/202/204</text>
+
+  <!-- Routes -->
+  <rect class="box" x="420" y="206" width="460" height="70" fill="#ede9fe"/>
+  <text x="440" y="232" class="t">Rutas · routes/index.js</text>
+  <text x="440" y="254" class="m">/renos · /mantenimientos · /vuelo/resumen · /auth/login</text>
+  <text x="440" y="270" class="m">router.param(id) → 400 ID_INVALIDO</text>
+  <path class="arr" d="M650,176 L650,204"/>
+
+  <!-- Auth -->
+  <rect class="box" x="420" y="306" width="460" height="70" fill="#fce7f3"/>
+  <text x="440" y="332" class="t">Middleware de seguridad · auth.js</text>
+  <text x="440" y="354" class="m">requiereRol('JEFE_ESTABLO') · verifica JWT</text>
+  <text x="440" y="370" class="m">sin token/inválido → 401 · otro rol (ELFO) → 403</text>
+  <path class="arr" d="M650,276 L650,304"/>
+
+  <!-- Controllers -->
+  <rect class="box" x="420" y="406" width="460" height="70" fill="#dcfce7"/>
+  <text x="440" y="432" class="t">Controladores (delgados)</text>
+  <text x="440" y="454" class="m">renoController · mantenimientoController · authController</text>
+  <text x="440" y="470" class="m">solo HTTP ↔ servicio: elige 201 / 202 / 204</text>
+  <path class="arr" d="M650,376 L650,404"/>
+
+  <!-- Services -->
+  <rect class="box" x="420" y="506" width="460" height="104" fill="#bbf7d0" stroke-width="2.5"/>
+  <text x="440" y="532" class="t">Servicios · REGLAS DE NEGOCIO</text>
+  <text x="440" y="554" class="m">renoService: regla 1 (energía ≥ 70, DISPONIBLE),</text>
+  <text x="440" y="570" class="m">  regla 2 (máx. 9, transacción + lock), regla 5</text>
+  <text x="440" y="586" class="m">mantenimientoService: regla 3 (transiciones),</text>
+  <text x="440" y="602" class="m">  regla 4 (VENTISCA → 422) · authService (JWT)</text>
+  <path class="arr" d="M650,476 L650,504"/>
+
+  <!-- Repositories -->
+  <rect class="box" x="420" y="640" width="460" height="64" fill="#fef9c3"/>
+  <text x="440" y="666" class="t">Repositorios · repositories/index.js</text>
+  <text x="440" y="688" class="m">renoRepository · mantenimientoRepository → modelos Sequelize</text>
+  <path class="arr" d="M650,610 L650,638"/>
+
+  <!-- DB -->
+  <path d="M520,748 a130,16 0 0,0 260,0 v62 a130,16 0 0,1 -260,0 z" fill="#e2e8f0" stroke="#334155" stroke-width="1.5"/>
+  <ellipse cx="650" cy="748" rx="130" ry="16" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <text x="650" y="790" text-anchor="middle" class="t">MySQL · polonorte</text>
+  <text x="650" y="810" text-anchor="middle" class="m">tablas renos · mantenimientos</text>
+  <path class="arr" d="M650,704 L650,730"/>
+
+  <!-- Error handler -->
+  <rect class="box" x="40" y="420" width="290" height="150" fill="#fee2e2" stroke="#b91c1c"/>
+  <text x="58" y="448" class="t">Manejador global de errores</text>
+  <text x="58" y="468" class="m">middlewares/errorHandler.js</text>
+  <text x="58" y="492" class="s">AppError → formato único:</text>
+  <text x="58" y="512" class="m">{ codigo, mensaje, detalles,</text>
+  <text x="58" y="528" class="m">  timestamp, ruta }</text>
+  <text x="58" y="552" class="m">400·401·403·404·409·422</text>
+
+  <path class="err" d="M420,250 C370,250 360,440 332,450"/>
+  <path class="err" d="M420,345 C380,345 370,470 332,475"/>
+  <path class="err" d="M420,442 L332,500"/>
+  <path class="err" d="M420,560 C380,560 370,535 332,530"/>
+  <text x="338" y="410" class="lr">throw AppError</text>
+
+  <path class="err" d="M150,420 L150,180"/>
+  <text x="58" y="300" class="lr">respuesta de error</text>
+  <text x="58" y="316" class="lr">JSON estándar</text>
+
+  <!-- Adapter -->
+  <rect class="box" x="1000" y="506" width="360" height="104" fill="#e0e7ff" stroke-width="2.5"/>
+  <text x="1020" y="532" class="t">MeteoAdapter · adapters/</text>
+  <text x="1020" y="554" class="m">único que conoce XML/SOAP</text>
+  <text x="1020" y="572" class="m">objeto dominio ⇄ envelope SOAP</text>
+  <text x="1020" y="590" class="m">devuelve { zona, fecha, condicion }</text>
+  <text x="1020" y="606" class="m">timeout 3 s · reintento backoff (2)</text>
+
+  <path class="arr" d="M880,540 L998,540"/>
+  <text x="886" y="532" class="lbl">obtenerPronostico</text>
+  <text x="890" y="556" class="lbl">PISTA_DESPEGUE</text>
+  <path class="arr" d="M998,590 L882,590"/>
+  <text x="890" y="606" class="lbl">condicion | Error</text>
+
+  <!-- External SOAP -->
+  <rect x="1000" y="720" width="360" height="110" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="1020" y="748" class="t">MeteoPoloNorteService (SOAP)</text>
+  <text x="1020" y="768" class="s">sistema heredado externo</text>
+  <text x="1020" y="790" class="m">ObtenerPronostico(zona, fecha)</text>
+  <text x="1020" y="808" class="m">DESPEJADO | NEVADA_LEVE | VENTISCA</text>
+  <text x="1020" y="824" class="m">soap:Fault "Estación sin señal"</text>
+
+  <path class="arr" d="M1110,610 L1110,718"/>
+  <text x="1035" y="660" class="lbl">POST text/xml</text>
+  <text x="1030" y="676" class="lbl">(Envelope)</text>
+  <path class="arr" d="M1240,718 L1240,612"/>
+  <text x="1250" y="660" class="lbl">XML</text>
+  <text x="1250" y="676" class="lbl">respuesta/Fault</text>
+
+  <!-- Failure handling callout -->
+  <rect x="940" y="250" width="420" height="200" rx="12" fill="#fff1f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="960" y="278" font-size="17" font-weight="700" fill="#b91c1c">⚠ Punto de manejo del fallo externo</text>
+  <text x="960" y="302" class="s">1. MeteoAdapter detecta timeout (3 s), error de red</text>
+  <text x="960" y="320" class="s">   o soap:Fault → reintenta con backoff (2 intentos)</text>
+  <text x="960" y="342" class="s">2. Lanza ServicioExternoNoDisponibleError</text>
+  <text x="960" y="364" class="s">3. mantenimientoService lo captura y guarda el</text>
+  <text x="960" y="382" class="s">   mantenimiento con estado PENDIENTE_CLIMA</text>
+  <text x="960" y="404" class="s">4. El controlador responde 202 Accepted</text>
+  <text x="960" y="422" class="s">   ("se confirmará después")</text>
+  <text x="960" y="442" class="lr">Nunca 500 por culpa del servicio externo</text>
+  <path class="err" d="M1110,450 L1110,504"/>
+  <path class="err" d="M940,400 C900,420 900,500 882,520"/>
+
+  <!-- Legend -->
+  <g transform="translate(40,915)">
+    <line x1="0" y1="0" x2="40" y2="0" class="arr"/><text x="50" y="4" class="lbl">llamada / sentido del flujo</text>
+    <line x1="250" y1="0" x2="290" y2="0" class="ok"/><text x="300" y="4" class="lbl">respuesta exitosa</text>
+    <line x1="460" y1="0" x2="500" y2="0" class="err"/><text x="510" y="4" class="lbl">error / fallo propagado</text>
+    <rect x="700" y="-10" width="30" height="20" fill="#f1f5f9" stroke="#334155" stroke-dasharray="4 3"/><text x="740" y="4" class="lbl">sistema externo</text>
+  </g>
+  <text x="40" y="960" class="m">Flujo: Postman → app.js → rutas → auth (si requiere rol) → controlador → servicio → repositorio → MySQL; servicio → MeteoAdapter → SOAP</text>
+</svg>

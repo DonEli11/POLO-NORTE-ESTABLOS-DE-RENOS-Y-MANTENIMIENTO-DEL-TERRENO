@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="polo-norte-arquitectura" name="Arquitectura">
+    <mxGraphModel dx="1470" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1470" pageHeight="900" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="titulo" value="Arquitectura de Polo Norte API" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontFamily=Arial;fontSize=39;fontStyle=1;fontColor=#13263E;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="35" width="1372" height="53" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitulo" value="Escenario B · Establo de renos y mantenimiento del terreno" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#4C627C;spacingLeft=0;" vertex="1" parent="1">
+          <mxGeometry x="48" y="91" width="1372" height="23" as="geometry"/>
+        </mxCell>
+        <mxCell id="api" value="API REST · Node.js y Express" style="rounded=1;absoluteArcSize=1;arcSize=20;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=19;spacingTop=15;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#294963;fillColor=#F6F9FD;strokeColor=#C5D4E5;strokeWidth=1.4;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="306" y="140" width="812" height="698" as="geometry"/>
+        </mxCell>
+        <mxCell id="postman" value="&lt;span style=&quot;font-size:19px;font-weight:bold&quot;&gt;Postman&lt;/span&gt;&lt;br&gt;Colección del Escenario B&lt;br&gt;&lt;span style=&quot;font-family:monospace;font-size:12px&quot;&gt;localhost:3000/api&lt;/span&gt;" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Arial;fontSize=14;fontColor=#573212;strokeColor=#D79D60;fillColor=#FFF2DF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="48" y="194" width="208" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="entrada" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;Entrada HTTP&lt;/span&gt;&lt;br&gt;app.js · server.js&lt;br&gt;Procesa JSON y monta el prefijo /api" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Arial;fontSize=14;fontColor=#18334F;strokeColor=#A0B7D7;fillColor=#EBF3FF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="536" y="194" width="295" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="rutas" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;Rutas&lt;/span&gt;&lt;br&gt;Login, renos, mantenimientos y vuelo&lt;br&gt;Validan los identificadores de ruta" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Arial;fontSize=14;fontColor=#18334F;strokeColor=#A0B7D7;fillColor=#EBF3FF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="536" y="303" width="295" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="auth" value="&lt;span style=&quot;font-size:17px;font-weight:bold&quot;&gt;Seguridad JWT&lt;/span&gt;&lt;br&gt;Escrituras de renos&lt;br&gt;Requiere rol JEFE_ESTABLO" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;fontFamily=Arial;fontSize=13;fontColor=#573212;strokeColor=#D5A36F;fillColor=#FFF2DF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="883" y="303" width="212" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="controladores" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;Controladores&lt;/span&gt;&lt;br&gt;Invocan servicios y devuelven&lt;br&gt;la respuesta HTTP" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;fontFamily=Arial;fontSize=14;fontColor=#18334F;strokeColor=#A0B7D7;fillColor=#EBF3FF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="536" y="416" width="295" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="errores" value="&lt;span style=&quot;font-size:16px;font-weight:bold&quot;&gt;Manejo de errores&lt;/span&gt;&lt;br&gt;errorHandler.js&lt;br&gt;Estandariza el estado&lt;br&gt;y el cuerpo JSON" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;fontFamily=Arial;fontSize=13;fontColor=#742E2A;strokeColor=#D7948F;fillColor=#FFF0EF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="326" y="405" width="180" height="97" as="geometry"/>
+        </mxCell>
+        <mxCell id="servicios" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;Servicios de negocio&lt;/span&gt;&lt;br&gt;&lt;b&gt;Renos&lt;/b&gt; · energía ≥ 70 y máximo 9 asignados. Protege los asignados.&lt;br&gt;&lt;b&gt;Mantenimiento&lt;/b&gt; · transiciones de estado y clima en la pista.&lt;br&gt;&lt;b&gt;Autenticación&lt;/b&gt; · emite tokens JWT." style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;spacingRight=10;fontFamily=Arial;fontSize=14;fontColor=#16443D;strokeColor=#71AEA1;fillColor=#E5F7F1;strokeWidth=1.6;" vertex="1" parent="1">
+          <mxGeometry x="536" y="528" width="295" height="142" as="geometry"/>
+        </mxCell>
+        <mxCell id="contingencia" value="&lt;span style=&quot;font-size:16px;font-weight:bold&quot;&gt;Clima en la pista&lt;/span&gt;&lt;br&gt;&lt;b&gt;Ventisca&lt;/b&gt; · HTTP 422.&lt;br&gt;&lt;br&gt;&lt;b&gt;Fallo tras reintentos&lt;/b&gt;&lt;br&gt;Guarda el mantenimiento pendiente de clima&lt;br&gt;y responde HTTP 202." style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=7;fontFamily=Arial;fontSize=13;fontColor=#634818;strokeColor=#CCAE71;fillColor=#FFF7E6;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="326" y="543" width="180" height="139" as="geometry"/>
+        </mxCell>
+        <mxCell id="adapter" value="&lt;span style=&quot;font-size:17px;font-weight:bold&quot;&gt;MeteoAdapter&lt;/span&gt;&lt;br&gt;Convierte los datos a SOAP.&lt;br&gt;Espera 3 s por intento,&lt;br&gt;hasta 2 intentos con backoff." style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;fontFamily=Arial;fontSize=13;fontColor=#3C3063;strokeColor=#A998D2;fillColor=#F0EAFF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="883" y="550" width="212" height="98" as="geometry"/>
+        </mxCell>
+        <mxCell id="meteo" value="&lt;span style=&quot;font-size:17px;font-weight:bold&quot;&gt;MeteoPoloNorteService&lt;/span&gt;&lt;br&gt;Obtener pronóstico por zona y fecha&lt;br&gt;Devuelve pronóstico o SOAP Fault&lt;br&gt;&lt;br&gt;Simulador local en :8089/meteo" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=14;fontFamily=Arial;fontSize=13;fontColor=#3C3063;strokeColor=#A998D2;fillColor=#F8F4FF;strokeWidth=1.4;dashed=1;dashPattern=5 4;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="534" width="250" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="persistencia" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;Repositorios y modelos&lt;/span&gt;&lt;br&gt;Sequelize ejecuta las consultas&lt;br&gt;y transacciones de renos y mantenimiento" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=15;spacingRight=10;fontFamily=Arial;fontSize=14;fontColor=#18334F;strokeColor=#A0B7D7;fillColor=#EBF3FF;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="536" y="715" width="295" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="mysql" value="&lt;span style=&quot;font-size:18px;font-weight:bold&quot;&gt;MySQL en Laragon&lt;/span&gt;&lt;br&gt;Esquema &lt;b&gt;polonorte&lt;/b&gt;&lt;br&gt;renos · mantenimientos" style="shape=cylinder3;size=14;boundedLbl=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=5;fontFamily=Arial;fontSize=14;fontColor=#18334F;strokeColor=#7D9ABD;fillColor=#EAF2FC;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="696" width="250" height="98" as="geometry"/>
+        </mxCell>
+        <mxCell id="workbench" value="&lt;span style=&quot;font-size:17px;font-weight:bold&quot;&gt;MySQL Workbench&lt;/span&gt;&lt;br&gt;Consulta las tablas y sus registros" style="rounded=1;absoluteArcSize=1;arcSize=14;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#294963;strokeColor=#B4C4D6;fillColor=#F3F7FB;strokeWidth=1.4;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="826" width="250" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-http" value="HTTP · JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#385570;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="postman" target="entrada">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-12" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-rutas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="entrada" target="rutas">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-publicas" value="Rutas públicas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#385570;labelBackgroundColor=#F6F9FD;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="rutas" target="controladores">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="-50" y="0" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-protegidas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#A36B34;strokeWidth=1.7;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="rutas" target="auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-rol" value="Rol válido" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#A36B34;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#77501C;labelBackgroundColor=#F6F9FD;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="auth" target="controladores">
+          <mxGeometry x="0.35" relative="1" as="geometry"><Array as="points"><mxPoint x="989" y="454"/></Array><mxPoint x="0" y="-11" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-errores" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#AE5954;strokeWidth=1.5;dashed=1;dashPattern=5 4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="controladores" target="errores">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-error-json" value="Error JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#AE5954;strokeWidth=1.5;dashed=1;dashPattern=5 4;fontFamily=Arial;fontSize=12;fontColor=#8D4943;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="errores" target="postman">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="152" y="454"/></Array><mxPoint x="0" y="-12" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-servicios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="controladores" target="servicios">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-contingencia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;strokeColor=#B49151;strokeWidth=1.4;dashed=1;dashPattern=5 4;exitX=0;exitY=0.6;entryX=1;entryY=0.5;" edge="1" parent="1" source="servicios" target="contingencia">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-adapter" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#7964AA;strokeWidth=1.7;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="servicios" target="adapter">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-soap" value="SOAP/XML" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#7964AA;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#5C4988;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="adapter" target="meteo">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-12" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-repos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="servicios" target="persistencia">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-sql" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#385570;labelBackgroundColor=#F6F9FD;exitX=1;exitY=0.5;entryX=0;entryY=0.632653;entryPerimeter=0;" edge="1" parent="1" source="persistencia" target="mysql">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-12" as="offset"/></mxGeometry>
+        </mxCell>
+        <mxCell id="e-workbench" value=":3306" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#527698;strokeWidth=1.7;fontFamily=Arial;fontSize=12;fontColor=#385570;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="workbench" target="mysql">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="24" y="0" as="offset"/></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
